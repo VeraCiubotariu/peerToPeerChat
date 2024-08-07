@@ -4,6 +4,7 @@ import chat.client.Client;
 import chat.server.Server;
 import chat.tcp.Group;
 
+import java.net.InetAddress;
 import java.util.Objects;
 
 public enum Operation {
@@ -32,14 +33,14 @@ public enum Operation {
 
     private static void startConnection(final Server server, final MessageWrapper message) {
         if (Objects.equals(message.message().getSender(), server.getNickname())) {
-            server.getPendingClients().add(message.message().getReceiver());
+            server.getPendingClients().put(message.message().getReceiver(), message.senderIp());
             System.out.println("\n" + message.message().getSender() + ": " + message.message().getMessage());
         }
     }
 
     private static void acknowledgeConnection(final Server server, final MessageWrapper message) {
         String groupName = message.message().getGroup();
-        if (server.getPendingClients().contains(message.message().getSender()) && Objects.equals(server.getNickname(), message.message().getReceiver())) {
+        if (server.getPendingClients().containsKey(message.message().getSender()) && Objects.equals(server.getNickname(), message.message().getReceiver())) {
             if (!server.getConnectedGroups().containsKey(groupName)) {
                 Group group = new Group(groupName, server.getServerSocket());
                 server.getConnectedGroups().put(groupName, group);
@@ -52,8 +53,9 @@ public enum Operation {
             System.out.println("\n" + message.message().getSender() + ": " + message.message().getMessage());
         } else if (Objects.equals(server.getNickname(), message.message().getSender())) {
             //TODO: Nu ar trebui sa verificam daca grupul s-a alaturat deja?
+            InetAddress receiverIp = server.getPendingClients().get(message.message().getReceiver());
             Group group = new Group(groupName, server.getServerSocket(), true);
-            group.connectTo(message.senderIp());
+            group.connectTo(receiverIp);
             Client.setActiveGroup(group);
             server.getConnectedGroups().put(groupName, group);
 

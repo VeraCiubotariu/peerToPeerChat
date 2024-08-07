@@ -55,6 +55,7 @@ public class Group {
                 String output = gson.toJson(message, Message.class);
                 byte[] buf = output.getBytes();
                 stream.write(buf);
+
             } catch (IOException e) {
                 Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
                 //throw new RuntimeException(e);
@@ -66,6 +67,7 @@ public class Group {
         try {
             Loggers.infoLogger.info("Connecting to {} of group {}", ip.getHostAddress(), name);
             Socket socket = new Socket(ip.getHostAddress(), PORT);
+            Loggers.infoLogger.info("Connected to {} of group {}", ip.getHostAddress(), name);
             participants.add(socket);
         } catch (IOException e) {
             Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
