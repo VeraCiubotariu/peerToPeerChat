@@ -1,6 +1,7 @@
 package chat.logic;
 
 import chat.client.Client;
+import chat.loggers.Loggers;
 import chat.server.Server;
 import chat.tcp.Group;
 
@@ -33,14 +34,18 @@ public enum Operation {
 
     private static void startConnection(final Server server, final MessageWrapper message) {
         if (Objects.equals(message.message().getSender(), server.getNickname())) {
-            server.getPendingClients().put(message.message().getReceiver(), message.senderIp());
+            server.getPendingClients().add(message.message().getSender());
             System.out.println("\n" + message.message().getSender() + ": " + message.message().getMessage());
+        }
+
+        else if(Objects.equals(message.message().getReceiver(), server.getNickname())) {
+            server.getIncomingInvites().put(message.message().getSender(), message.senderIp());
         }
     }
 
     private static void acknowledgeConnection(final Server server, final MessageWrapper message) {
         String groupName = message.message().getGroup();
-        if (server.getPendingClients().containsKey(message.message().getSender()) && Objects.equals(server.getNickname(), message.message().getReceiver())) {
+        if (server.getPendingClients().contains(message.message().getSender()) && Objects.equals(server.getNickname(), message.message().getReceiver())) {
             if (!server.getConnectedGroups().containsKey(groupName)) {
                 Group group = new Group(groupName, server.getServerSocket());
                 server.getConnectedGroups().put(groupName, group);
@@ -53,7 +58,8 @@ public enum Operation {
             System.out.println("\n" + message.message().getSender() + ": " + message.message().getMessage());
         } else if (Objects.equals(server.getNickname(), message.message().getSender())) {
             //TODO: Nu ar trebui sa verificam daca grupul s-a alaturat deja?
-            InetAddress receiverIp = server.getPendingClients().get(message.message().getReceiver());
+            InetAddress receiverIp = server.getIncomingInvites().get(message.message().getReceiver());
+            Loggers.infoLogger.info("Trying to connect to ip {}...", receiverIp);
             Group group = new Group(groupName, server.getServerSocket(), true);
             group.connectTo(receiverIp);
             Client.setActiveGroup(group);

@@ -18,7 +18,8 @@ import java.util.concurrent.Executors;
 
 public class Server implements Runnable {
     private final Map<String, Group> connectedGroups = new ConcurrentHashMap<>();
-    private final Map<String, InetAddress> pendingClients = new ConcurrentHashMap<>();
+    private final Set<String> pendingClients = new ConcurrentSkipListSet<>();
+    private final Map<String, InetAddress> incomingInvites = new ConcurrentHashMap<>();
     private final ExecutorService executors = Executors.newFixedThreadPool(10);
     private final Gson gson = new Gson();
     private final String nickname;
@@ -34,6 +35,10 @@ public class Server implements Runnable {
         } catch (IOException ex) {
             Loggers.errorLogger.error(ex.getMessage());
         }
+    }
+
+    public Map<String, InetAddress> getIncomingInvites() {
+        return incomingInvites;
     }
 
     public static StringBuilder data(final byte[] a) {
@@ -65,6 +70,7 @@ public class Server implements Runnable {
                 Loggers.infoLogger.info("Message received :" + message.toString());
 
                 MessageWrapper wrapper = new MessageWrapper(message, receivePacket.getAddress());
+
                 executors.submit(new WorkerTask(this, wrapper));
             }
         } catch (SocketException e) {
@@ -82,7 +88,7 @@ public class Server implements Runnable {
         return nickname;
     }
 
-    public Map<String, InetAddress> getPendingClients() {
+    public Set<String> getPendingClients() {
         return pendingClients;
     }
 

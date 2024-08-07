@@ -39,3 +39,29 @@
 2024-08-07 12:12:03,017 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.0.228 of group g1
 2024-08-07 12:12:03,017 INFO c.t.ListenerTask [pool-1-thread-2] Listening to: 10.4.0.228
 2024-08-07 12:12:03,017 INFO c.c.Client [pool-1-thread-2] Changed active group: g1
+2024-08-07 12:27:59,053 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:27:59,053 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!hello","receiver":"X","group":"g1"}
+2024-08-07 12:27:59,068 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:28:04,502 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ack","receiver":"E","group":"g1"}
+2024-08-07 12:28:04,502 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ack', receiver='E'}
+2024-08-07 12:28:04,518 INFO c.t.Group [pool-1-thread-2] Group g1 created
+2024-08-07 12:28:04,518 INFO c.t.Group [pool-1-thread-2] Accepting participant in group g1
+2024-08-07 12:30:24,930 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:30:24,930 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!hello","receiver":"X","group":"g1"}
+2024-08-07 12:30:24,946 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:30:34,343 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ack","receiver":"E","group":"g1"}
+2024-08-07 12:30:34,343 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ack', receiver='E'}
+2024-08-07 12:30:34,358 INFO c.t.Group [pool-1-thread-2] Group g1 created
+2024-08-07 12:30:34,358 INFO c.t.Group [pool-1-thread-2] Accepting participant in group g1
+2024-08-07 12:32:18,517 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:32:18,517 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!hello","receiver":"X","group":"g1"}
+2024-08-07 12:32:18,517 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:32:23,306 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ack","receiver":"E","group":"g1"}
+2024-08-07 12:32:23,306 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ack', receiver='E'}
+2024-08-07 12:32:23,306 INFO c.t.Group [pool-1-thread-2] Group g1 created
+2024-08-07 12:32:23,322 INFO c.t.Group [pool-1-thread-2] Accepting participant in group g1
+2024-08-07 12:34:11,635 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:34:11,635 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!hello","receiver":"X","group":"g1"}
+2024-08-07 12:34:11,651 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!hello', receiver='X'}
+2024-08-07 12:34:14,901 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ack","receiver":"E","group":"g1"}
+2024-08-07 12:34:14,901 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ack', receiver='E'}
