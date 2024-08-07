@@ -1,0 +1,21 @@
+2024-08-06 19:19:00,842 INFO c.c.Client [Thread-1] Message send :Message{sender='X', message='!hello', receiver='E'}
+2024-08-06 19:19:00,842 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!hello","receiver":"E","group":"g1"}
+2024-08-06 19:19:00,845 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!hello', receiver='E'}
+2024-08-06 19:19:07,944 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!ack","receiver":"X","group":"g1"}
+2024-08-06 19:19:07,944 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!ack', receiver='X'}
+2024-08-06 19:19:07,944 INFO c.t.Group [pool-1-thread-2] Group g1 created
+2024-08-06 19:19:08,524 INFO c.c.Client [Thread-0] Message send :Message{sender='E', message='!ack', receiver='X'}
+2024-08-06 19:24:04,452 INFO c.c.Client [Thread-1] Sending message :Message{sender='X', message='asd', receiver='hh'}
+2024-08-06 19:24:04,452 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"asd","receiver":"hh","group":"j"}
+2024-08-06 19:24:04,452 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='asd', receiver='hh'}
+2024-08-07 11:38:55,445 INFO c.c.Client [Thread-0] Sending message :Message{sender='E', message='!hello', receiver='Main'}
+2024-08-07 11:40:39,266 INFO c.c.Client [Thread-1] Sending message :Message{sender='X', message='!hello', receiver='Main'}
+2024-08-07 11:40:39,266 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!hello","receiver":"Main","group":"g1"}
+2024-08-07 11:40:39,282 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!hello', receiver='Main'}
+2024-08-07 11:41:25,455 INFO c.c.Client [Thread-1] Sending message :Message{sender='X', message='!hello', receiver='Main'}
+2024-08-07 11:41:25,455 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!hello","receiver":"Main","group":"g1"}
+2024-08-07 11:41:25,455 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!hello', receiver='Main'}
+2024-08-07 11:42:02,775 INFO c.s.Server [Thread-0] Data received: {"sender":"Main","message":"!ack","receiver":"X","group":"g1"}
+2024-08-07 11:42:02,775 INFO c.s.Server [Thread-0] Message received :Message{sender='Main', message='!ack', receiver='X'}
+2024-08-07 11:42:02,775 INFO c.t.Group [pool-1-thread-2] Group g1 created
+2024-08-07 11:42:02,807 INFO c.t.Group [pool-1-thread-2] Accepting participant in group g1
