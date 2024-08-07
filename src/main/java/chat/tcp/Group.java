@@ -2,6 +2,7 @@ package chat.tcp;
 
 import chat.loggers.Loggers;
 import chat.logic.Message;
+import chat.utils.Usefullstuff;
 import com.google.gson.Gson;
 
 import java.io.DataOutputStream;
@@ -9,7 +10,9 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,6 +25,7 @@ public class Group {
     private final String name;
     private boolean newlyConnected = false;
     private ExecutorService executor = null;
+    private Thread accepter;
 
     public Group(String name, ServerSocket server) {
         Loggers.infoLogger.info("Group " + name + " created");
@@ -75,6 +79,18 @@ public class Group {
         }
     }
 
+    public void connectTo(String ip) {
+        try {
+            Loggers.infoLogger.info("Connecting to {} of group {}", ip, name);
+            Socket socket = new Socket(ip, PORT);
+            Loggers.infoLogger.info("Connected to {} of group {}", ip, name);
+            participants.add(socket);
+        } catch (IOException e) {
+            Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
+            //throw new RuntimeException(e);
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -98,7 +114,13 @@ public class Group {
         executor.shutdownNow();
     }
 
-    public void closeConnections(){
+    public void startServerSocketTask() {
+        Loggers.infoLogger.info("Starting server socket task {}", Thread.currentThread().getName());
+        accepter = new Thread(this::addParticipant);
+        accepter.start();
+    }
+
+    public void closeConnections() {
         for (Socket socket : participants) {
             try {
                 socket.close();
@@ -106,5 +128,42 @@ public class Group {
                 Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
             }
         }
+
+        if (accepter != null) {
+            Loggers.infoLogger.info("Stopping server socket task {}", Thread.currentThread().getName());
+            accepter.interrupt();
+            accepter = null;
+        }
+    }
+
+    public void newGroupMemberUpdate(String newMemberIp) {
+        Loggers.infoLogger.info("New group member update for {}", newMemberIp);
+        connectTo(newMemberIp);
+
+        Message updateMessage = new Message(Usefullstuff.getINSTANCE().getNickname(), "!update", null,
+                name, getGroupMembersIps());
+
+        sendMessage(updateMessage);
+    }
+
+    public synchronized void updateConnections(Message updateMessage) {
+        Loggers.infoLogger.info("Updating connections for {}", name);
+        List<String> myIps = getGroupMembersIps();
+
+        for (String ip : updateMessage.getIps()) {
+            if (!myIps.contains(ip)) {
+                connectTo(ip);
+            }
+        }
+    }
+
+    public List<String> getGroupMembersIps() {
+        List<String> ips = new ArrayList<>();
+
+        for (Socket socket : participants) {
+            ips.add(socket.getInetAddress().getHostAddress());
+        }
+
+        return ips;
     }
 }

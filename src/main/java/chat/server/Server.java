@@ -7,7 +7,11 @@ import chat.logic.WorkerTask;
 import chat.utils.Usefullstuff;
 
 import java.io.IOException;
-import java.net.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,18 +21,16 @@ import java.util.concurrent.Executors;
 
 public class Server implements Runnable {
     private final Set<String> pendingClients = new ConcurrentSkipListSet<>();
+    private final Set<String> groupPendingClients = new ConcurrentSkipListSet<>();
+    private final Map<String, List<String>> pendingGroupInvites = new ConcurrentHashMap<>();
     private final Map<String, InetAddress> incomingInvites = new ConcurrentHashMap<>();
     private final ExecutorService executors = Executors.newFixedThreadPool(10);
     private final int port = 7401;
     private boolean running = true;
-    private ServerSocket serverSocket;
+
 
     public Server() throws RuntimeException {
-        try {
-            this.serverSocket = new ServerSocket(port);
-        } catch (IOException ex) {
-            Loggers.errorLogger.error(ex.getMessage());
-        }
+
     }
 
     public Map<String, InetAddress> getIncomingInvites() {
@@ -70,7 +72,11 @@ public class Server implements Runnable {
         return pendingClients;
     }
 
-    public ServerSocket getServerSocket() {
-        return serverSocket;
+    public Set<String> getGroupPendingClients() {
+        return groupPendingClients;
+    }
+
+    public Map<String, List<String>> getPendingGroupInvites() {
+        return pendingGroupInvites;
     }
 }

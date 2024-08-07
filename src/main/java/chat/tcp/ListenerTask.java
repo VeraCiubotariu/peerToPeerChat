@@ -4,9 +4,9 @@ import chat.loggers.Loggers;
 import chat.logic.Message;
 import chat.utils.Usefullstuff;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.net.Socket;
-import java.util.Arrays;
 
 public class ListenerTask implements Runnable {
     private final Socket socket;
@@ -22,7 +22,7 @@ public class ListenerTask implements Runnable {
             DataInputStream input = new DataInputStream(socket.getInputStream());
 
             while (socket.isConnected()) {
-                if(socket.getInputStream().available() > 0) {
+                if (socket.getInputStream().available() > 0) {
                     Loggers.infoLogger.info("Listener: {} is trying to read", Thread.currentThread().getName());
                     byte[] buf = new byte[65535];
                     input.read(buf);
@@ -31,6 +31,11 @@ public class ListenerTask implements Runnable {
                     Loggers.infoLogger.info("Received: " + read, ListenerTask.class);
 
                     Message message = Usefullstuff.getINSTANCE().getGson().fromJson(read, Message.class);
+
+                    if (message.getMessage().startsWith("!update")) {
+                        Usefullstuff.getINSTANCE().getActiveGroup().updateConnections(message);
+                    }
+
                     System.out.println("\n" + message.getSender() + ": " + message.getMessage());
                 }
             }

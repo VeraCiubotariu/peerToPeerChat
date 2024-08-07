@@ -1,10 +1,11 @@
 package chat.utils;
 
-import chat.client.Client;
 import chat.loggers.Loggers;
 import chat.tcp.Group;
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,9 +15,14 @@ public class Usefullstuff {
     private final Gson gson = new Gson();
     private String nickname = "X";
     private Group activeGroup = null;
+    private ServerSocket serverSocket;
 
     private Usefullstuff() {
-
+        try {
+            this.serverSocket = new ServerSocket(7401);
+        } catch (IOException ex) {
+            Loggers.errorLogger.error(ex.getMessage());
+        }
     }
 
     public static Usefullstuff getINSTANCE() {
@@ -24,6 +30,18 @@ public class Usefullstuff {
             INSTANCE = new Usefullstuff();
         }
         return INSTANCE;
+    }
+
+    public static StringBuilder data(final byte[] a) {
+        if (a == null)
+            return null;
+        StringBuilder ret = new StringBuilder();
+        int i = 0;
+        while (a[i] != 0) {
+            ret.append((char) a[i]);
+            i++;
+        }
+        return ret;
     }
 
     public Gson getGson() {
@@ -47,29 +65,21 @@ public class Usefullstuff {
     }
 
     public void setActiveGroup(Group activeGroup) {
-        if(this.activeGroup != null) {
+        if (this.activeGroup != null) {
             this.activeGroup.stopListeners();
         }
 
         this.activeGroup = activeGroup;
 
-        if(activeGroup != null) {
+        if (activeGroup != null) {
             this.activeGroup.startListeners();
         }
 
         Loggers.infoLogger.info("Changed active group: " + activeGroup.getName());
     }
 
-    public static StringBuilder data(final byte[] a) {
-        if (a == null)
-            return null;
-        StringBuilder ret = new StringBuilder();
-        int i = 0;
-        while (a[i] != 0) {
-            ret.append((char) a[i]);
-            i++;
-        }
-        return ret;
+    public ServerSocket getServerSocket() {
+        return serverSocket;
     }
 
 }

@@ -39,7 +39,7 @@ public class Client implements Runnable {
     public void run() {
         while (running) {
             readMessageFromConsole();
-            message = new Message(Usefullstuff.getINSTANCE().getNickname(), messageInput, to, group);
+            message = new Message(Usefullstuff.getINSTANCE().getNickname(), messageInput, to, group, null);
 
             Loggers.infoLogger.info("Active group: " + Usefullstuff.getINSTANCE().getActiveGroup());
 
@@ -62,6 +62,14 @@ public class Client implements Runnable {
         }
         if (messageInput.startsWith("!toUDP")) {
             Usefullstuff.getINSTANCE().setActiveGroup(null);
+            readMessageFromConsole();
+            return;
+        }
+        if (messageInput.startsWith("!group")) {
+            String groupName = messageInput.split(" ")[1];
+            Group newGroup = new Group(groupName, Usefullstuff.getINSTANCE().getServerSocket());
+            Usefullstuff.getINSTANCE().getConnectedGroups().put(groupName, newGroup);
+            Usefullstuff.getINSTANCE().setActiveGroup(newGroup);
             readMessageFromConsole();
             return;
         }

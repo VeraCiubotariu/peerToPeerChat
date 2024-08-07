@@ -1,18 +1,20 @@
 package chat.logic;
 
-import java.io.Serializable;
+import java.util.List;
 
-public class Message implements Serializable {
+public class Message {
     private final String sender;
     private final String message;
     private final String receiver;
-    private final String group;
+    private final List<String> ips;
+    private String group;
 
-    public Message(final String sender, final String message, final String receiver, final String group) {
+    public Message(final String sender, final String message, final String receiver, final String group, final List<String> ips) {
         this.sender = sender;
         this.message = message;
         this.receiver = receiver;
         this.group = group;
+        this.ips = ips;
     }
 
     public String getSender() {
@@ -29,6 +31,14 @@ public class Message implements Serializable {
 
     public String getGroup() {
         return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public List<String> getIps() {
+        return ips;
     }
 
     @Override
