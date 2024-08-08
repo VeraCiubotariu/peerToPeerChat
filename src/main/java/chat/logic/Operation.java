@@ -11,11 +11,11 @@ import java.util.Objects;
 
 public enum Operation {
     CONNECTION("!hello", Operation::startConnection),
+    GROUP_ACKNOWLEDGE("!ackg", Operation::groupAcknowledge),
     ACKNOWLEDGE("!ack", Operation::acknowledgeConnection),
     CLOSE_CONNECTION("!bye", Operation::closeConnection),
     CLOSE_ALL_CONNECTIONS("!byebye", Operation::closeAllConnections),
     GROUP_INVITE("!invite", Operation::groupInvite),
-    GROUP_ACKNOWLEDGE("!ackg", Operation::groupAcknowledge),
     GROUP_BYE("!byeg", Operation::groupBye);
 
     public final String regex;
@@ -115,6 +115,7 @@ public enum Operation {
         } else if (messageWrapper.message().getReceiver().equals(Usefullstuff.getINSTANCE().getNickname())) {
             if (server.getGroupPendingClients().contains(messageWrapper.message().getSender())) {
                 Usefullstuff.getINSTANCE().getActiveGroup().newGroupMemberUpdate(messageWrapper.senderIp().getHostAddress());
+                server.getGroupPendingClients().remove(messageWrapper.message().getSender());
             }
         }
     }

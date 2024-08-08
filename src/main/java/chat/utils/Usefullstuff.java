@@ -16,6 +16,7 @@ public class Usefullstuff {
     private String nickname = "X";
     private Group activeGroup = null;
     private ServerSocket serverSocket;
+    private final int PORT = 7450;
 
     private Usefullstuff() {
         try {
@@ -75,11 +76,14 @@ public class Usefullstuff {
             this.activeGroup.startListeners();
         }
 
-        Loggers.infoLogger.info("Changed active group: " + activeGroup.getName());
+        Loggers.infoLogger.info("Changed active group: " + activeGroup);
     }
 
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
 
+    public int getPORT() {
+        return PORT;
+    }
 }

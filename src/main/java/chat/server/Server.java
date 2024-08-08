@@ -25,7 +25,6 @@ public class Server implements Runnable {
     private final Map<String, List<String>> pendingGroupInvites = new ConcurrentHashMap<>();
     private final Map<String, InetAddress> incomingInvites = new ConcurrentHashMap<>();
     private final ExecutorService executors = Executors.newFixedThreadPool(10);
-    private final int port = 7401;
     private boolean running = true;
 
 
@@ -39,7 +38,7 @@ public class Server implements Runnable {
 
     @Override
     public void run() {
-        try (DatagramSocket socket = new DatagramSocket(port)) {
+        try (DatagramSocket socket = new DatagramSocket(Usefullstuff.getINSTANCE().getPORT())) {
             while (running) {
                 byte[] receive = new byte[65535];
                 DatagramPacket receivePacket = new DatagramPacket(receive, receive.length);

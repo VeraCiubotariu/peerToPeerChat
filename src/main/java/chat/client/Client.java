@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class Client implements Runnable {
     private static boolean running = true;
-    private final int port = 7401;
     private final Gson gson = new Gson();
     private final Scanner scanner = new Scanner(System.in);
     private DatagramSocket socket;
@@ -88,7 +87,7 @@ public class Client implements Runnable {
             String output = gson.toJson(message, Message.class);
             byte[] buf = output.getBytes();
             DatagramPacket packet
-                    = new DatagramPacket(buf, buf.length, address, port);
+                    = new DatagramPacket(buf, buf.length, address, Usefullstuff.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Sending message :" + message.toString());
             socket.send(packet);
         } catch (IOException e) {

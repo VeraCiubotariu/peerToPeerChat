@@ -18,7 +18,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Group {
-    private static final int PORT = 7401;
     private final Set<Socket> participants = new HashSet<>();
     private final ServerSocket myServer;
     private final Gson gson = new Gson();
@@ -26,6 +25,7 @@ public class Group {
     private boolean newlyConnected = false;
     private ExecutorService executor = null;
     private Thread accepter;
+    private Object lock = new Object();
 
     public Group(String name, ServerSocket server) {
         Loggers.infoLogger.info("Group " + name + " created");
@@ -45,7 +45,9 @@ public class Group {
             Loggers.infoLogger.info("Accepting participant in group {}", name);
             Socket socket = myServer.accept();
             Loggers.infoLogger.info("Accepted participant {} in group {}", socket.getInetAddress().getAddress(), name);
-            participants.add(socket);
+            synchronized (lock){
+                participants.add(socket);
+            }
         } catch (IOException e) {
             Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
         }
@@ -70,9 +72,12 @@ public class Group {
     public void connectTo(InetAddress ip) {
         try {
             Loggers.infoLogger.info("Connecting to {} of group {}", ip.getHostAddress(), name);
-            Socket socket = new Socket(ip.getHostAddress(), PORT);
+            Socket socket = new Socket(ip.getHostAddress(), Usefullstuff.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Connected to {} of group {}", ip.getHostAddress(), name);
-            participants.add(socket);
+
+            synchronized (lock){
+                participants.add(socket);
+            }
         } catch (IOException e) {
             Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
             //throw new RuntimeException(e);
@@ -82,9 +87,12 @@ public class Group {
     public void connectTo(String ip) {
         try {
             Loggers.infoLogger.info("Connecting to {} of group {}", ip, name);
-            Socket socket = new Socket(ip, PORT);
+            Socket socket = new Socket(ip, Usefullstuff.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Connected to {} of group {}", ip, name);
-            participants.add(socket);
+
+            synchronized (lock){
+                participants.add(socket);
+            }
         } catch (IOException e) {
             Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
             //throw new RuntimeException(e);
@@ -116,7 +124,7 @@ public class Group {
 
     public void startServerSocketTask() {
         Loggers.infoLogger.info("Starting server socket task {}", Thread.currentThread().getName());
-        accepter = new Thread(this::addParticipant);
+        accepter = new Thread(new AccepterTask(this));
         accepter.start();
     }
 
