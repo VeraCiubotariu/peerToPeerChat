@@ -75,4 +75,16 @@ public class RestService {
         }
         return Optional.empty();
     }
+
+    public Optional<Message> sendMessage(Message message){
+        Map<String, Group> connectedGroups = Usefullstuff.getINSTANCE().getConnectedGroups();
+
+        if(connectedGroups.containsKey(message.getGroup())) {
+            Group group = connectedGroups.get(message.getGroup());
+            group.sendMessage(message);
+            return Optional.of(message);
+        }
+
+        return Optional.empty();
+    }
 }

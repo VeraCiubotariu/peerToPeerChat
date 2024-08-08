@@ -14,10 +14,10 @@ public enum Operation {
     CONNECTION("!hello", Operation::startConnection),
     GROUP_ACKNOWLEDGE("!ackg", Operation::groupAcknowledge),
     ACKNOWLEDGE("!ack", Operation::acknowledgeConnection),
+    GROUP_BYE("!byeg", Operation::groupBye),
     CLOSE_CONNECTION("!bye", Operation::closeConnection),
     CLOSE_ALL_CONNECTIONS("!byebye", Operation::closeAllConnections),
-    GROUP_INVITE("!invite", Operation::groupInvite),
-    GROUP_BYE("!byeg", Operation::groupBye);
+    GROUP_INVITE("!invite", Operation::groupInvite);
 
     public final String regex;
     public final OperationLogic operation;
@@ -31,13 +31,15 @@ public enum Operation {
         for (Group group : Usefullstuff.getINSTANCE().getConnectedGroups().values()) {
             group.closeConnections();
         }
+
         Usefullstuff.getINSTANCE().setActiveGroup(null);
         server.shutdown();
         Client.shutdown();
     }
 
     private static void closeConnection(final Server server, final MessageWrapper message) {
-        Group activeGroup = Usefullstuff.getINSTANCE().getActiveGroup();
+        Group activeGroup = Usefullstuff.getINSTANCE().getConnectedGroups().get(message.message().getGroup());
+
         if (activeGroup != null) {
             activeGroup.closeConnections();
             Usefullstuff.getINSTANCE().getConnectedGroups().remove(activeGroup);
@@ -107,6 +109,7 @@ public enum Operation {
         String group = messageWrapper.message().getGroup();
         Map<String, Group> connectedGroups = Usefullstuff.getINSTANCE().getConnectedGroups();
         Group addresedGroup = connectedGroups.getOrDefault(group, null);
+
         if (sender.equals(myNickname) && addresedGroup != null) {
             Message byeMessage = new Message(myNickname, "!byeg", null,
                     addresedGroup.getName(), null);

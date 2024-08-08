@@ -27,6 +27,13 @@ public class ChatRestController {
         return ResponseEntity.ok().body("OK");
     }
 
+    @PostMapping("disconnection-request/{nickname}")
+    public ResponseEntity<String> requestDisconnection(@PathVariable String nickname) {
+        Message message = new Message(myNickname, "!bye", nickname, nickname, null);
+        service.sendDataUDP(message);
+        return ResponseEntity.ok().body("OK");
+    }
+
     @PostMapping("/acknowledge-request/{nickname}")
     public ResponseEntity<String> requestAcknowledge(@PathVariable String nickname) {
         Message message = new Message(myNickname, "!ack", nickname, null, null);
@@ -86,5 +93,44 @@ public class ChatRestController {
         }
 
         return ResponseEntity.ok().body("ERROR: Not connected to that group");
+    }
+
+    @PostMapping("/messages")
+    public ResponseEntity<String> sendMessage(@RequestBody MessageDTO messageDTO) {
+        Message message = new Message(myNickname, messageDTO.message(), messageDTO.receiver(), messageDTO.receiver(),
+                null);
+
+        Optional<Message> response = service.sendMessage(message);
+        if (response.isPresent()) {
+            return ResponseEntity.ok().body("OK");
+        }
+
+        return ResponseEntity.ok().body("ERROR: You aren't connected to that receiver");
+    }
+
+    @PostMapping("/groups/messages")
+    public ResponseEntity<String> sendGroupMessage(@RequestBody GroupMessageDTO messageDTO) {
+        Message message = new Message(myNickname, messageDTO.message(), null, messageDTO.group(), null);
+
+        Optional<Message> response = service.sendMessage(message);
+        if (response.isPresent()) {
+            return ResponseEntity.ok().body("OK");
+        }
+
+        return ResponseEntity.ok().body("ERROR: You aren't connected to that group");
+    }
+
+    @PostMapping("/group-disconnection-request/{id}")
+    public ResponseEntity<String> requestGroupDisconnection(@PathVariable String id) {
+        Message message = new Message(myNickname, "!byeg", null, id, null);
+        service.sendDataUDP(message);
+        return ResponseEntity.ok().body("OK");
+    }
+
+    @PostMapping("/total-disconnection-request")
+    public ResponseEntity<String> requestTotalDisconnection() {
+        Message message = new Message(myNickname, "!byebye", null, null, null);
+        service.sendDataUDP(message);
+        return ResponseEntity.ok().body("OK");
     }
 }
