@@ -32,11 +32,11 @@ public class ListenerTask implements Runnable {
 
                     Message message = Usefullstuff.getINSTANCE().getGson().fromJson(read, Message.class);
 
+                    System.out.println("\n" + message.getSender() + ": " + message.getMessage());
+
                     if (message.getMessage().startsWith("!update")) {
                         Usefullstuff.getINSTANCE().getActiveGroup().updateConnections(message);
                     }
-
-                    System.out.println("\n" + message.getSender() + ": " + message.getMessage());
                 }
             }
         } catch (IOException e) {

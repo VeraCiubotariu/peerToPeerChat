@@ -10,10 +10,8 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.net.UnknownHostException;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -107,6 +105,7 @@ public class Group {
         if (executor != null) {
             return;
         }
+
         executor = Executors.newCachedThreadPool();
 
         for (Socket socket : participants) {
@@ -120,6 +119,16 @@ public class Group {
         }
 
         executor.shutdownNow();
+        Loggers.infoLogger.info("Stopped listeners for group {}", name);
+        executor = null;
+    }
+
+    public void stopServerSocketTask(){
+        if (accepter != null) {
+            Loggers.infoLogger.info("Stopping server socket task {}", Thread.currentThread().getName());
+            accepter.interrupt();
+            accepter = null;
+        }
     }
 
     public void startServerSocketTask() {
@@ -136,17 +145,14 @@ public class Group {
                 Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
             }
         }
-
-        if (accepter != null) {
-            Loggers.infoLogger.info("Stopping server socket task {}", Thread.currentThread().getName());
-            accepter.interrupt();
-            accepter = null;
-        }
     }
 
     public void newGroupMemberUpdate(String newMemberIp) {
         Loggers.infoLogger.info("New group member update for {}", newMemberIp);
         connectTo(newMemberIp);
+
+        stopListeners();
+        startListeners();
 
         Message updateMessage = new Message(Usefullstuff.getINSTANCE().getNickname(), "!update", null,
                 name, getGroupMembersIps());
@@ -159,10 +165,17 @@ public class Group {
         List<String> myIps = getGroupMembersIps();
 
         for (String ip : updateMessage.getIps()) {
-            if (!myIps.contains(ip)) {
-                connectTo(ip);
+            try{
+                if (!myIps.contains(ip) && !Objects.equals(ip, InetAddress.getLocalHost().getHostAddress())) {
+                    connectTo(ip);
+                }
+            } catch (UnknownHostException e) {
+                Loggers.errorLogger.error(e.getClass() + " :" + e.getMessage());
             }
         }
+
+        stopListeners();
+        startListeners();
     }
 
     public List<String> getGroupMembersIps() {

@@ -104,18 +104,20 @@ public enum Operation {
 
             if (!Usefullstuff.getINSTANCE().getConnectedGroups().containsKey(groupName)) {
                 Group group = new Group(groupName, Usefullstuff.getINSTANCE().getServerSocket(), true);
-                group.startServerSocketTask();
                 Usefullstuff.getINSTANCE().getConnectedGroups().put(groupName, group);
             }
 
             Usefullstuff.getINSTANCE().setActiveGroup(Usefullstuff.getINSTANCE().getConnectedGroups()
                     .get(messageWrapper.message().getGroup()));
-
-            System.out.println("\n" + messageWrapper.message().getSender() + ": " + messageWrapper.message().getMessage());
         } else if (messageWrapper.message().getReceiver().equals(Usefullstuff.getINSTANCE().getNickname())) {
+            System.out.println("\n" + messageWrapper.message().getSender() + ": " + messageWrapper.message().getMessage());
+
             if (server.getGroupPendingClients().contains(messageWrapper.message().getSender())) {
-                Usefullstuff.getINSTANCE().getActiveGroup().newGroupMemberUpdate(messageWrapper.senderIp().getHostAddress());
-                server.getGroupPendingClients().remove(messageWrapper.message().getSender());
+                if (Usefullstuff.getINSTANCE().getConnectedGroups().containsKey(messageWrapper.message().getGroup())) {
+                    Usefullstuff.getINSTANCE().setActiveGroup(Usefullstuff.getINSTANCE().getConnectedGroups().get(messageWrapper.message().getGroup()));
+                    Usefullstuff.getINSTANCE().getActiveGroup().newGroupMemberUpdate(messageWrapper.senderIp().getHostAddress());
+                    server.getGroupPendingClients().remove(messageWrapper.message().getSender());
+                }
             }
         }
     }

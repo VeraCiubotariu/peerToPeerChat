@@ -300,3 +300,396 @@
 2024-08-08 10:07:50,792 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X'}
 2024-08-08 10:08:17,605 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
 2024-08-08 10:08:17,605 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E'}
+2024-08-08 10:16:54,115 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:16:54,115 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@60a1e0f3
+2024-08-08 10:17:13,257 INFO c.u.Usefullstuff [Thread-1] Changed active group: null
+2024-08-08 10:17:31,111 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:17:31,119 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:17:31,119 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:17:31,119 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:17:38,787 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:17:38,787 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:19:49,711 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:19:49,711 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@60a1e0f3
+2024-08-08 10:19:53,248 INFO c.u.Usefullstuff [Thread-1] Changed active group: null
+2024-08-08 10:19:59,721 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:19:59,732 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:19:59,732 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:19:59,732 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:20:05,186 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:20:05,186 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:25:09,164 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:25:15,666 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:25:15,681 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:25:15,681 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:25:15,681 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:25:19,062 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:25:19,062 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:25:31,076 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@28d3cfa2
+2024-08-08 10:25:43,541 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:25:44,578 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:28:09,834 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:35:02,491 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:35:09,540 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:35:09,553 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:35:09,553 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:35:09,553 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:35:17,850 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:35:17,850 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:35:29,869 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 10:35:29,869 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@198adfe5
+2024-08-08 10:35:29,869 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 10:35:36,599 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:35:37,622 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:38:08,998 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:38:16,771 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:38:16,771 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:38:16,771 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:38:16,771 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:38:21,587 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:38:21,587 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:38:21,602 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 10:38:21,602 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@32a6591d
+2024-08-08 10:38:21,602 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:38:21,602 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 10:38:21,602 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:44:40,858 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:44:46,348 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:44:46,363 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:44:46,363 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:44:46,363 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:44:49,360 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:44:49,360 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:44:49,375 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 10:44:49,375 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@32a6591d
+2024-08-08 10:44:49,375 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:44:49,375 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 10:44:49,375 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:44:49,391 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 10:44:49,391 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 10:44:49,391 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:45:25,454 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 10:45:25,454 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 10:45:25,454 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@32a6591d
+2024-08-08 10:45:25,454 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 10:45:29,490 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@32a6591d
+2024-08-08 10:45:29,490 INFO c.t.Group [Thread-1] Sending message dsada to [10, 4, 1, 43]
+2024-08-08 10:45:29,490 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:45:55,697 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@32a6591d
+2024-08-08 10:45:55,697 INFO c.t.Group [Thread-1] Sending message dsfdfs to [10, 4, 1, 43]
+2024-08-08 10:45:55,697 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:48:39,216 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:48:45,145 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:48:45,145 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:48:45,145 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:48:45,161 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:48:56,402 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g"}
+2024-08-08 10:48:56,402 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g'}
+2024-08-08 10:49:14,291 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:49:19,828 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:49:19,828 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:49:19,828 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:49:19,844 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:49:25,101 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:49:25,101 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 10:49:25,117 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@67532aee
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:49:25,117 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 10:49:25,117 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:50:16,904 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 10:50:16,904 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 10:50:16,904 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 10:50:16,904 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@67532aee
+2024-08-08 10:50:16,904 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 10:50:38,576 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:50:38,576 INFO c.t.Group [Thread-1] Sending message hjgdf to [10, 4, 1, 43]
+2024-08-08 10:50:38,576 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:51:15,948 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:51:15,948 INFO c.t.Group [Thread-1] Sending message hgfshdg to [10, 4, 1, 43]
+2024-08-08 10:51:15,962 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:51:55,058 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:51:55,058 INFO c.t.Group [Thread-1] Sending message rer to [10, 4, 1, 43]
+2024-08-08 10:51:55,065 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:53:00,554 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 10:53:00,554 INFO c.u.Usefullstuff [Thread-1] Changed active group: null
+2024-08-08 10:53:06,965 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 10:53:06,965 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 10:53:06,980 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@67532aee
+2024-08-08 10:53:06,981 INFO c.t.Group [Thread-4] Accepting participant in group g1
+2024-08-08 10:57:41,185 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 10:57:46,492 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 10:57:46,501 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:57:46,501 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 10:57:46,501 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 10:57:54,263 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 10:57:54,263 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 10:57:54,278 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 10:57:54,278 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@67532aee
+2024-08-08 10:57:54,278 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 10:57:54,278 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 10:57:54,278 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 10:57:54,278 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 10:57:54,278 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 10:57:54,294 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:58:05,184 INFO c.t.Group [Thread-1] Stopped listeners for group g1
+2024-08-08 10:58:05,184 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 10:58:05,184 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 10:58:05,184 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 10:58:05,184 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@67532aee
+2024-08-08 10:58:05,190 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 10:58:12,842 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:58:12,842 INFO c.t.Group [Thread-1] Sending message fds to [10, 4, 1, 43]
+2024-08-08 10:58:12,842 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:58:52,641 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:58:52,641 INFO c.t.Group [Thread-1] Sending message dsaf to [10, 4, 1, 43]
+2024-08-08 10:58:52,649 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:59:17,850 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:59:17,850 INFO c.t.Group [Thread-1] Sending message fdfd to [10, 4, 1, 43]
+2024-08-08 10:59:17,852 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:59:23,621 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:59:23,621 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 10:59:23,623 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 10:59:43,581 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 10:59:43,581 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva","receiver":"E","group":"g1"}
+2024-08-08 10:59:57,805 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@67532aee
+2024-08-08 10:59:57,805 INFO c.t.Group [Thread-1] Sending message mesaj2 to [10, 4, 1, 43]
+2024-08-08 10:59:57,809 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:02:18,938 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:02:24,234 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:02:24,240 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:02:24,240 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:02:24,240 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:02:27,402 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:02:27,402 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:02:27,417 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@82ac92a
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:02:27,417 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:02:27,417 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:02:39,898 INFO c.t.Group [Thread-1] Stopped listeners for group g1
+2024-08-08 11:02:39,898 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 11:02:39,898 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 11:02:39,898 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 11:02:39,898 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@82ac92a
+2024-08-08 11:02:39,898 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 11:04:53,521 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 11:04:53,521 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva","receiver":"E","group":"g1"}
+2024-08-08 11:05:03,369 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@82ac92a
+2024-08-08 11:05:03,369 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:05:03,384 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:08:26,704 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:08:32,571 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:08:32,577 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:08:32,577 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:08:32,577 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:08:37,005 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:08:37,005 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:08:37,020 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:08:37,020 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:08:37,045 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@6253ae7
+2024-08-08 11:08:37,045 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:08:37,045 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:08:37,045 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:08:37,045 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:08:37,045 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:12:05,968 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:12:22,276 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:12:22,283 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:12:22,283 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:12:22,298 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:12:30,272 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:12:30,272 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:12:30,296 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:12:30,296 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:12:30,319 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@2d6735ae
+2024-08-08 11:12:30,319 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:12:30,319 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:12:30,319 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:12:30,319 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:12:30,319 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:12:39,753 INFO c.t.Group [Thread-1] Stopped listeners for group g1
+2024-08-08 11:12:39,753 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 11:12:39,753 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 11:12:39,753 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 11:12:39,769 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 11:12:39,769 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@2d6735ae
+2024-08-08 11:12:44,229 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@2d6735ae
+2024-08-08 11:12:44,229 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:12:44,231 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:13:01,052 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@2d6735ae
+2024-08-08 11:13:01,052 INFO c.t.Group [Thread-1] Sending message alt mesaj to [10, 4, 1, 43]
+2024-08-08 11:13:01,063 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:13:15,605 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:13:21,508 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:13:21,522 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:13:21,522 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:13:21,522 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:13:25,622 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:13:25,622 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:13:25,637 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:13:25,637 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:13:25,660 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@efe9a20
+2024-08-08 11:13:25,660 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:13:25,660 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:13:25,660 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:13:25,660 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:13:25,660 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:17:01,195 INFO c.t.Group [Thread-1] Group ng1 created
+2024-08-08 11:17:06,172 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:17:18,836 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:17:18,855 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:17:18,855 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:17:18,855 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:17:22,778 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:17:22,778 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:17:22,794 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:17:22,794 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:17:22,809 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@6253ae7
+2024-08-08 11:17:22,809 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:17:22,809 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:17:22,809 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:17:22,809 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:17:22,809 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:18:15,800 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@6253ae7
+2024-08-08 11:18:15,800 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:18:15,800 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:19:12,098 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@6253ae7
+2024-08-08 11:19:12,098 INFO c.t.Group [Thread-1] Sending message fddf to [10, 4, 1, 43]
+2024-08-08 11:19:12,098 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:19:27,131 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:19:32,967 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:19:32,974 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:19:32,974 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:19:32,974 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:19:36,247 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:19:36,247 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:19:36,247 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:19:36,247 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:19:36,278 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@5e0e396b
+2024-08-08 11:19:36,278 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:19:36,278 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:19:36,278 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:19:36,278 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:19:36,278 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:19:41,221 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@5e0e396b
+2024-08-08 11:19:41,221 INFO c.t.Group [Thread-1] Sending message salut to [10, 4, 1, 43]
+2024-08-08 11:19:41,221 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:20:33,175 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:20:37,782 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:20:37,797 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:20:37,797 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:20:37,797 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:20:42,618 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:20:42,618 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:20:42,633 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:20:42,633 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:20:42,743 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@efe9a20
+2024-08-08 11:20:42,743 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:20:42,743 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:20:42,758 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:20:42,758 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:20:42,758 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:20:48,303 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@efe9a20
+2024-08-08 11:20:48,303 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:20:48,303 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:22:53,242 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:23:00,180 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:23:00,196 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:23:00,196 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:23:00,196 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:23:08,875 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g"}
+2024-08-08 11:23:08,875 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g'}
+2024-08-08 11:23:40,738 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:23:44,680 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:23:44,680 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:23:44,680 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:23:44,696 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:23:52,064 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:23:52,064 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:23:52,079 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:23:52,095 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:23:57,097 INFO c.u.Usefullstuff [pool-1-thread-2] Slept a while
+2024-08-08 11:23:57,097 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@6253ae7
+2024-08-08 11:23:57,097 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:23:57,097 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:23:57,097 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:23:57,097 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:23:57,097 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:27:31,226 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:27:41,448 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:27:41,461 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:27:41,461 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:27:41,461 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:27:45,199 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:27:45,199 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:27:45,215 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:27:45,215 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@761e038b
+2024-08-08 11:27:45,215 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:27:45,215 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:27:45,215 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:27:45,230 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:27:45,230 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:27:45,230 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:27:53,960 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:27:53,960 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:27:53,960 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:28:54,772 INFO c.t.Group [Thread-1] Stopped listeners for group g1
+2024-08-08 11:28:54,772 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 11:28:54,772 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 11:28:54,772 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 11:28:54,772 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@761e038b
+2024-08-08 11:28:54,772 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 11:28:54,772 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 11:28:54,772 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva","receiver":"E","group":"g1"}
+2024-08-08 11:32:35,921 INFO c.t.Group [Thread-1] Group g1 created
+2024-08-08 11:32:42,332 INFO c.c.Client [Thread-1] Active group: null
+2024-08-08 11:32:42,344 INFO c.c.Client [Thread-1] Sending message :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:32:42,344 INFO c.s.Server [Thread-0] Data received: {"sender":"E","message":"!invite","receiver":"X","group":"g1"}
+2024-08-08 11:32:42,360 INFO c.s.Server [Thread-0] Message received :Message{sender='E', message='!invite', receiver='X', ips=null, group='g1'}
+2024-08-08 11:32:49,221 INFO c.s.Server [Thread-0] Data received: {"sender":"X","message":"!ackg","receiver":"E","group":"g1"}
+2024-08-08 11:32:49,221 INFO c.s.Server [Thread-0] Message received :Message{sender='X', message='!ackg', receiver='E', ips=null, group='g1'}
+2024-08-08 11:32:49,237 INFO c.t.Group [pool-1-thread-2] Starting server socket task pool-1-thread-2
+2024-08-08 11:32:49,237 INFO c.u.Usefullstuff [pool-1-thread-2] Changed active group: chat.tcp.Group@761e038b
+2024-08-08 11:32:49,237 INFO c.t.Group [pool-1-thread-2] New group member update for 10.4.1.43
+2024-08-08 11:32:49,237 INFO c.t.Group [Thread-2] Accepting participant in group g1
+2024-08-08 11:32:49,237 INFO c.t.Group [pool-1-thread-2] Connecting to 10.4.1.43 of group g1
+2024-08-08 11:32:49,252 INFO c.t.Group [pool-1-thread-2] Connected to 10.4.1.43 of group g1
+2024-08-08 11:32:49,252 INFO c.t.Group [pool-1-thread-2] Stopped listeners for group g1
+2024-08-08 11:32:49,252 INFO c.t.ListenerTask [pool-1-thread-2] Listening to: 10.4.1.43
+2024-08-08 11:32:49,252 INFO c.t.Group [pool-1-thread-2] Sending message !update to [10, 4, 1, 43]
+2024-08-08 11:32:49,259 INFO c.t.Group [pool-1-thread-2] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:33:17,689 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:33:17,689 INFO c.t.Group [Thread-1] Sending message mesaj to [10, 4, 1, 43]
+2024-08-08 11:33:17,693 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:33:23,883 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 11:33:23,883 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva","receiver":"E","group":"g1"}
+2024-08-08 11:33:30,411 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:33:30,411 INFO c.t.Group [Thread-1] Sending message dfdsf to [10, 4, 1, 43]
+2024-08-08 11:33:30,418 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:33:32,885 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:33:32,885 INFO c.t.Group [Thread-1] Sending message dfewr to [10, 4, 1, 43]
+2024-08-08 11:33:32,887 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:33:35,255 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:33:35,255 INFO c.t.Group [Thread-1] Sending message rwe to [10, 4, 1, 43]
+2024-08-08 11:33:35,265 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!
+2024-08-08 11:35:08,455 INFO c.t.Group [Thread-1] Stopped listeners for group g1
+2024-08-08 11:35:08,455 INFO c.t.Group [Thread-1] Stopping server socket task Thread-1
+2024-08-08 11:35:08,455 INFO c.u.Usefullstuff [Thread-1] Changed active group: null
+2024-08-08 11:35:39,378 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 11:35:39,378 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva1","receiver":"E","group":"g1"}
+2024-08-08 11:35:46,721 INFO c.t.ListenerTask [pool-4-thread-1] Listener: pool-4-thread-1 is trying to read
+2024-08-08 11:35:46,721 INFO c.t.ListenerTask [pool-4-thread-1] Received: {"sender":"X","message":"ceva2","receiver":"E","group":"g2"}
+2024-08-08 11:36:26,408 INFO c.t.ListenerTask [Thread-1] Listening to: 10.4.1.43
+2024-08-08 11:36:26,408 INFO c.t.Group [Thread-1] Starting server socket task Thread-1
+2024-08-08 11:36:26,408 INFO c.u.Usefullstuff [Thread-1] Changed active group: chat.tcp.Group@761e038b
+2024-08-08 11:36:26,412 INFO c.t.Group [Thread-3] Accepting participant in group g1
+2024-08-08 11:36:39,798 INFO c.c.Client [Thread-1] Active group: chat.tcp.Group@761e038b
+2024-08-08 11:36:39,798 INFO c.t.Group [Thread-1] Sending message mds to [10, 4, 1, 43]
+2024-08-08 11:36:39,799 INFO c.t.Group [Thread-1] Message sent to [10, 4, 1, 43]!

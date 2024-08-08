@@ -20,7 +20,7 @@ public class Usefullstuff {
 
     private Usefullstuff() {
         try {
-            this.serverSocket = new ServerSocket(7401);
+            this.serverSocket = new ServerSocket(PORT);
         } catch (IOException ex) {
             Loggers.errorLogger.error(ex.getMessage());
         }
@@ -68,12 +68,14 @@ public class Usefullstuff {
     public void setActiveGroup(Group activeGroup) {
         if (this.activeGroup != null) {
             this.activeGroup.stopListeners();
+            this.activeGroup.stopServerSocketTask();
         }
 
         this.activeGroup = activeGroup;
 
         if (activeGroup != null) {
             this.activeGroup.startListeners();
+            this.activeGroup.startServerSocketTask();
         }
 
         Loggers.infoLogger.info("Changed active group: " + activeGroup);

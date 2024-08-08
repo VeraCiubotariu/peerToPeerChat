@@ -47,6 +47,8 @@ public class Message {
                 "sender='" + sender + '\'' +
                 ", message='" + message + '\'' +
                 ", receiver='" + receiver + '\'' +
+                ", ips=" + ips +
+                ", group='" + group + '\'' +
                 '}';
     }
 }

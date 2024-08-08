@@ -47,3 +47,6 @@ java.net.SocketException: Connection reset
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
 	at java.lang.Thread.run(Thread.java:1570) [?:?]
+2024-08-08 10:26:05,610 ERROR c.t.Group [pool-1-thread-2] class java.net.ConnectException :Connection timed out: connect
+2024-08-08 10:35:58,662 ERROR c.t.Group [pool-1-thread-2] class java.net.ConnectException :Connection timed out: connect
+2024-08-08 10:38:42,636 ERROR c.t.Group [pool-1-thread-2] class java.net.ConnectException :Connection timed out: connect

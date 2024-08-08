@@ -68,7 +68,6 @@ public class Client implements Runnable {
             String groupName = messageInput.split(" ")[1];
             Group newGroup = new Group(groupName, Usefullstuff.getINSTANCE().getServerSocket());
             Usefullstuff.getINSTANCE().getConnectedGroups().put(groupName, newGroup);
-            Usefullstuff.getINSTANCE().setActiveGroup(newGroup);
             readMessageFromConsole();
             return;
         }
