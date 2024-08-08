@@ -6,7 +6,7 @@ import chat.utils.Usefullstuff;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Usefullstuff.getINSTANCE().setNickname("X");
+        Usefullstuff.getINSTANCE().setNickname("E");
 
         Thread server = new Thread(new Server());
         Thread client = new Thread(new Client());

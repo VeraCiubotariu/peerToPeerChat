@@ -16,7 +16,7 @@ public class Usefullstuff {
     private String nickname = "X";
     private Group activeGroup = null;
     private ServerSocket serverSocket;
-    private final int PORT = 7450;
+    private final int PORT = 3000;
 
     private Usefullstuff() {
         try {

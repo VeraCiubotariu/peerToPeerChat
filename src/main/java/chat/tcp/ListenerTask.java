@@ -30,13 +30,18 @@ public class ListenerTask implements Runnable {
                     String read = Usefullstuff.data(buf).toString();
                     Loggers.infoLogger.info("Received: " + read, ListenerTask.class);
 
-                    Message message = Usefullstuff.getINSTANCE().getGson().fromJson(read, Message.class);
+                    String[] parts = read.split("}");
+                    for (String part : parts) {
+                        String messageString = part + "}";
+                        Message message = Usefullstuff.getINSTANCE().getGson().fromJson(messageString, Message.class);
 
-                    System.out.println("\n" + message.getSender() + ": " + message.getMessage());
+                        System.out.println(message.getSender() + ": " + message.getMessage());
 
-                    if (message.getMessage().startsWith("!update")) {
-                        Usefullstuff.getINSTANCE().getActiveGroup().updateConnections(message);
+                        if (message.getMessage().startsWith("!update")) {
+                            Usefullstuff.getINSTANCE().getActiveGroup().updateConnections(message);
+                        }
                     }
+
 
                 }
             }

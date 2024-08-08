@@ -51,7 +51,7 @@ public class Client implements Runnable {
     }
 
     private void readMessageFromConsole() {
-        System.out.print("Message: ");
+        System.out.println("Message: ");
         messageInput = scanner.nextLine();
         if (messageInput.startsWith("!switch ")) {
             String newGroup = messageInput.split(" ")[1];
@@ -71,13 +71,17 @@ public class Client implements Runnable {
             readMessageFromConsole();
             return;
         }
-        System.out.print("To: ");
-        to = scanner.nextLine();
 
-        System.out.print("Group: ");
-        group = scanner.nextLine();
-        if (group.equals("null")) {
-            group = null;
+        if(Usefullstuff.getINSTANCE().getActiveGroup() == null){
+            System.out.println("To: ");
+            to = scanner.nextLine();
+
+            System.out.println("Group: ");
+            group = scanner.nextLine();
+
+            if (group.equals("null")) {
+                group = null;
+            }
         }
     }
 
