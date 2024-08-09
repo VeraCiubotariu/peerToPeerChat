@@ -2,11 +2,11 @@ package chat;
 
 import chat.client.Client;
 import chat.server.Server;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Usefullstuff.getINSTANCE().setNickname("E");
+        ChatUtils.getINSTANCE().setNickname("E");
 
         Thread server = new Thread(new Server());
         Thread client = new Thread(new Client());

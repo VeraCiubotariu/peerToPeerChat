@@ -2,7 +2,7 @@ package chat.tcp;
 
 import chat.loggers.Loggers;
 import chat.logic.Message;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -27,19 +27,19 @@ public class ListenerTask implements Runnable {
                     byte[] buf = new byte[65535];
                     input.read(buf);
 
-                    String read = Usefullstuff.data(buf).toString();
+                    String read = ChatUtils.data(buf).toString();
                     Loggers.infoLogger.info("Received: " + read, ListenerTask.class);
 
                     String[] parts = read.split("}");
                     for (String part : parts) {
                         String messageString = part + "}";
-                        Message message = Usefullstuff.getINSTANCE().getGson().fromJson(messageString, Message.class);
+                        Message message = ChatUtils.getINSTANCE().getGson().fromJson(messageString, Message.class);
 
-                        Usefullstuff.getINSTANCE().addToMessageQueue(message);
+                        ChatUtils.getINSTANCE().addToMessageQueue(message);
                         System.out.println(message.getSender() + ": " + message.getMessage());
 
                         if (message.getMessage().startsWith("!update")) {
-                            Usefullstuff.getINSTANCE().getActiveGroup().updateConnections(message);
+                            ChatUtils.getINSTANCE().getActiveGroup().updateConnections(message);
                         }
                     }
 

@@ -3,7 +3,7 @@ package chat.client;
 import chat.loggers.Loggers;
 import chat.logic.Message;
 import chat.tcp.Group;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -38,14 +38,14 @@ public class Client implements Runnable {
     public void run() {
         while (running) {
             readMessageFromConsole();
-            message = new Message(Usefullstuff.getINSTANCE().getNickname(), messageInput, to, group, null);
+            message = new Message(ChatUtils.getINSTANCE().getNickname(), messageInput, to, group, null);
 
-            Loggers.infoLogger.info("Active group: " + Usefullstuff.getINSTANCE().getActiveGroup());
+            Loggers.infoLogger.info("Active group: " + ChatUtils.getINSTANCE().getActiveGroup());
 
-            if (Usefullstuff.getINSTANCE().getActiveGroup() == null) {
+            if (ChatUtils.getINSTANCE().getActiveGroup() == null) {
                 sendDataUDP();
             } else {
-                Usefullstuff.getINSTANCE().getActiveGroup().sendMessage(message);
+                ChatUtils.getINSTANCE().getActiveGroup().sendMessage(message);
             }
         }
     }
@@ -55,24 +55,24 @@ public class Client implements Runnable {
         messageInput = scanner.nextLine();
         if (messageInput.startsWith("!switch ")) {
             String newGroup = messageInput.split(" ")[1];
-            Usefullstuff.getINSTANCE().setActiveGroup(Usefullstuff.getINSTANCE().getConnectedGroups().get(newGroup));
+            ChatUtils.getINSTANCE().setActiveGroup(ChatUtils.getINSTANCE().getConnectedGroups().get(newGroup));
             readMessageFromConsole();
             return;
         }
         if (messageInput.startsWith("!toUDP")) {
-            Usefullstuff.getINSTANCE().setActiveGroup(null);
+            ChatUtils.getINSTANCE().setActiveGroup(null);
             readMessageFromConsole();
             return;
         }
         if (messageInput.startsWith("!group")) {
             String groupName = messageInput.split(" ")[1];
-            Group newGroup = new Group(groupName, Usefullstuff.getINSTANCE().getServerSocket());
-            Usefullstuff.getINSTANCE().getConnectedGroups().put(groupName, newGroup);
+            Group newGroup = new Group(groupName, ChatUtils.getINSTANCE().getServerSocket());
+            ChatUtils.getINSTANCE().getConnectedGroups().put(groupName, newGroup);
             readMessageFromConsole();
             return;
         }
 
-        if(Usefullstuff.getINSTANCE().getActiveGroup() == null){
+        if(ChatUtils.getINSTANCE().getActiveGroup() == null){
             System.out.println("To: ");
             to = scanner.nextLine();
 
@@ -90,7 +90,7 @@ public class Client implements Runnable {
             String output = gson.toJson(message, Message.class);
             byte[] buf = output.getBytes();
             DatagramPacket packet
-                    = new DatagramPacket(buf, buf.length, address, Usefullstuff.getINSTANCE().getPORT());
+                    = new DatagramPacket(buf, buf.length, address, ChatUtils.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Sending message :" + message.toString());
             socket.send(packet);
         } catch (IOException e) {

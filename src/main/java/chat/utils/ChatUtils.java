@@ -12,17 +12,17 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class Usefullstuff {
-    private static Usefullstuff INSTANCE;
+public class ChatUtils {
+    private static ChatUtils INSTANCE;
     private final Map<String, Group> connectedGroups = new ConcurrentHashMap<>();
     private final Gson gson = new Gson();
     private String nickname = "X";
     private Group activeGroup = null;
     private ServerSocket serverSocket;
-    private final int PORT = 3000;
+    private final int PORT = 7401;
     private final BlockingQueue<Message> messages = new LinkedBlockingQueue<>();
 
-    private Usefullstuff() {
+    private ChatUtils() {
         try {
             this.serverSocket = new ServerSocket(PORT);
         } catch (IOException ex) {
@@ -30,9 +30,9 @@ public class Usefullstuff {
         }
     }
 
-    public static Usefullstuff getINSTANCE() {
+    public static ChatUtils getINSTANCE() {
         if (INSTANCE == null) {
-            INSTANCE = new Usefullstuff();
+            INSTANCE = new ChatUtils();
         }
         return INSTANCE;
     }

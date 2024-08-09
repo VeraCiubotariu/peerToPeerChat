@@ -2,7 +2,7 @@ package chat.tcp;
 
 import chat.loggers.Loggers;
 import chat.logic.Message;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 import com.google.gson.Gson;
 
 import java.io.DataOutputStream;
@@ -70,7 +70,7 @@ public class Group {
     public void connectTo(InetAddress ip) {
         try {
             Loggers.infoLogger.info("Connecting to {} of group {}", ip.getHostAddress(), name);
-            Socket socket = new Socket(ip.getHostAddress(), Usefullstuff.getINSTANCE().getPORT());
+            Socket socket = new Socket(ip.getHostAddress(), ChatUtils.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Connected to {} of group {}", ip.getHostAddress(), name);
 
             synchronized (lock) {
@@ -85,7 +85,7 @@ public class Group {
     public void connectTo(String ip) {
         try {
             Loggers.infoLogger.info("Connecting to {} of group {}", ip, name);
-            Socket socket = new Socket(ip, Usefullstuff.getINSTANCE().getPORT());
+            Socket socket = new Socket(ip, ChatUtils.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Connected to {} of group {}", ip, name);
 
             synchronized (lock) {
@@ -149,7 +149,7 @@ public class Group {
         Loggers.infoLogger.info("New group member update for {}", newMemberIp);
         connectTo(newMemberIp);
 
-        Message updateMessage = new Message(Usefullstuff.getINSTANCE().getNickname(), "!update", null,
+        Message updateMessage = new Message(ChatUtils.getINSTANCE().getNickname(), "!update", null,
                 name, getGroupMembersIps());
 
         sendMessage(updateMessage);

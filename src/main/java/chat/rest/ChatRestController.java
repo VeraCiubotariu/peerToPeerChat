@@ -3,7 +3,7 @@ package chat.rest;
 import chat.logic.Message;
 import chat.services.ChatService;
 import chat.tcp.Group;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class ChatRestController {
     @Autowired
     private ChatService service;
-    private final String myNickname = Usefullstuff.getINSTANCE().getNickname();
+    private final String myNickname = ChatUtils.getINSTANCE().getNickname();
 
     @PostMapping("/connection-request/{nickname}")
     public ResponseEntity<String> requestConnection(@PathVariable String nickname) {
@@ -44,13 +44,13 @@ public class ChatRestController {
 
     @GetMapping("/groups")
     public ResponseEntity<?> getAll() {
-        Map<String, Group> groups = Usefullstuff.getINSTANCE().getConnectedGroups();
+        Map<String, Group> groups = ChatUtils.getINSTANCE().getConnectedGroups();
         return ResponseEntity.ok(groups.keySet());
     }
 
     @PostMapping("/groups/{id}")
     public ResponseEntity<String> addGroup(@PathVariable String id) {
-        Group group = new Group(id, Usefullstuff.getINSTANCE().getServerSocket());
+        Group group = new Group(id, ChatUtils.getINSTANCE().getServerSocket());
         Optional<Group> added = service.addGroup(group);
 
         if (added.isPresent()) {

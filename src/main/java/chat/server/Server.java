@@ -4,7 +4,7 @@ import chat.loggers.Loggers;
 import chat.logic.Message;
 import chat.logic.MessageWrapper;
 import chat.logic.WorkerTask;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -38,18 +38,18 @@ public class Server implements Runnable {
 
     @Override
     public void run() {
-        try (DatagramSocket socket = new DatagramSocket(Usefullstuff.getINSTANCE().getPORT())) {
+        try (DatagramSocket socket = new DatagramSocket(ChatUtils.getINSTANCE().getPORT())) {
             while (running) {
                 byte[] receive = new byte[65535];
                 DatagramPacket receivePacket = new DatagramPacket(receive, receive.length);
 
                 socket.receive(receivePacket);
 
-                String receivedData = Usefullstuff.data(receive).toString();
+                String receivedData = ChatUtils.data(receive).toString();
 
                 Loggers.infoLogger.info("Data received: " + receivedData);
 
-                Message message = Usefullstuff.getINSTANCE().getGson().fromJson(receivedData, Message.class);
+                Message message = ChatUtils.getINSTANCE().getGson().fromJson(receivedData, Message.class);
                 Loggers.infoLogger.info("Message received :" + message.toString());
 
                 MessageWrapper wrapper = new MessageWrapper(message, receivePacket.getAddress());

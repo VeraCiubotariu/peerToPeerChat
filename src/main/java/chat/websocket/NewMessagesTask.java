@@ -2,7 +2,7 @@ package chat.websocket;
 
 import chat.loggers.Loggers;
 import chat.logic.Message;
-import chat.utils.Usefullstuff;
+import chat.utils.ChatUtils;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
@@ -19,7 +19,7 @@ public class NewMessagesTask implements Runnable {
     public void run() {
         while (session.isOpen()) {
             try {
-                Message message = Usefullstuff.getINSTANCE().getMessages().take();
+                Message message = ChatUtils.getINSTANCE().getMessages().take();
 
                 if (session.isOpen()) {
                     session.sendMessage(new TextMessage(message.getSender() + ": " + message.getMessage()));
