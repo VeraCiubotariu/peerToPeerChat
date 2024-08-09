@@ -1,6 +1,7 @@
 package chat.rest;
 
 import chat.logic.Message;
+import chat.services.ChatService;
 import chat.tcp.Group;
 import chat.utils.Usefullstuff;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ChatRestController {
     @Autowired
-    private RestService service;
+    private ChatService service;
     private final String myNickname = Usefullstuff.getINSTANCE().getNickname();
 
     @PostMapping("/connection-request/{nickname}")

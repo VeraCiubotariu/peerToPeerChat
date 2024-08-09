@@ -1,13 +1,16 @@
 package chat.utils;
 
 import chat.loggers.Loggers;
+import chat.logic.Message;
 import chat.tcp.Group;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Usefullstuff {
     private static Usefullstuff INSTANCE;
@@ -17,6 +20,7 @@ public class Usefullstuff {
     private Group activeGroup = null;
     private ServerSocket serverSocket;
     private final int PORT = 3000;
+    private final BlockingQueue<Message> messages = new LinkedBlockingQueue<>();
 
     private Usefullstuff() {
         try {
@@ -87,5 +91,17 @@ public class Usefullstuff {
 
     public int getPORT() {
         return PORT;
+    }
+
+    public BlockingQueue<Message> getMessages() {
+        return messages;
+    }
+
+    public void addToMessageQueue(Message message){
+        try{
+            messages.put(message);
+        } catch (InterruptedException e){
+            Loggers.errorLogger.error("Error: ", e);
+        }
     }
 }

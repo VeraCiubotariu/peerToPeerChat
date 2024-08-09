@@ -6,6 +6,7 @@ import chat.server.Server;
 import chat.tcp.Group;
 import chat.utils.Usefullstuff;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Map;
 import java.util.Objects;
@@ -87,6 +88,7 @@ public enum Operation {
             server.getPendingClients().remove(sender);
 
             System.out.println("\n" + sender + ": " + mesajString);
+            //Usefullstuff.getINSTANCE().addToMessageQueue(message.message());
         } else if (Objects.equals(myNickname, sender)) {
             InetAddress receiverIp = server.getIncomingInvites().get(receiver);
             Loggers.infoLogger.info("Trying to connect to ip {}...", receiverIp);
@@ -99,6 +101,7 @@ public enum Operation {
             Usefullstuff.getINSTANCE().setActiveGroup(connectedGroups
                     .get(groupName));
 
+            //Usefullstuff.getINSTANCE().addToMessageQueue(message.message());
             System.out.println("\n" + sender + ": " + mesajString);
         }
     }
@@ -114,8 +117,7 @@ public enum Operation {
             Message byeMessage = new Message(myNickname, "!byeg", null,
                     addresedGroup.getName(), null);
             addresedGroup.sendMessage(byeMessage);
-            closeConnection(server, messageWrapper)
-            ;
+            closeConnection(server, messageWrapper);
         } else if(addresedGroup != null && connectedGroups.containsKey(group)){
             addresedGroup.removeSocket(messageWrapper.senderIp().getHostAddress());
         }
@@ -135,7 +137,6 @@ public enum Operation {
             }
             Usefullstuff.getINSTANCE().setActiveGroup(connectedGroups.get(groupName));
 
-            System.out.println("\n" + sender + ": " + messageWrapper.message().getMessage());
         } else if (receiver.equals(myNickname)) {
             if (server.getGroupPendingClients().contains(sender)) {
                 if (connectedGroups.containsKey(groupName)) {
@@ -143,6 +144,9 @@ public enum Operation {
                     Usefullstuff.getINSTANCE().getActiveGroup().newGroupMemberUpdate(messageWrapper.senderIp().getHostAddress());
                     server.getGroupPendingClients().remove(sender);
                 }
+
+                //Usefullstuff.getINSTANCE().addToMessageQueue(messageWrapper.message());
+                System.out.println("\n" + sender + ": " + messageWrapper.message().getMessage());
             }
         }
     }
@@ -154,7 +158,10 @@ public enum Operation {
         if (sender.equals(myNickname)) {
             server.getGroupPendingClients().add(receiver);
         } else if (receiver.equals(myNickname)) {
+            //Usefullstuff.getINSTANCE().addToMessageQueue(messageWrapper.message());
             System.out.println("\n" + sender + ": " + messageWrapper.message().getMessage());
         }
     }
+
+
 }

@@ -1,33 +1,25 @@
-package chat.rest;
+package chat.services;
 
-import chat.client.Client;
 import chat.loggers.Loggers;
 import chat.logic.Message;
-import chat.logic.MessageWrapper;
-import chat.server.Server;
-import chat.service.ChatService;
 import chat.tcp.Group;
 import chat.utils.Usefullstuff;
 import com.google.gson.Gson;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
 import java.net.*;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class RestService {
+public class ChatService {
     //private final Server server;
     private final Gson gson = new Gson();
     private DatagramSocket socket;
     private InetAddress address;
 
-    public RestService() {
+    public ChatService() {
         try {
             socket = new DatagramSocket();
             address = InetAddress.getByName("10.4.1.255");

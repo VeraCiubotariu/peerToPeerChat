@@ -35,6 +35,7 @@ public class ListenerTask implements Runnable {
                         String messageString = part + "}";
                         Message message = Usefullstuff.getINSTANCE().getGson().fromJson(messageString, Message.class);
 
+                        Usefullstuff.getINSTANCE().addToMessageQueue(message);
                         System.out.println(message.getSender() + ": " + message.getMessage());
 
                         if (message.getMessage().startsWith("!update")) {
