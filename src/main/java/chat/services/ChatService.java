@@ -28,7 +28,7 @@ public class ChatService {
         }
     }
 
-    public void sendDataUDP(Message message) {
+    public String sendDataUDP(Message message) {
         try {
             String output = gson.toJson(message, Message.class);
             byte[] buf = output.getBytes();
@@ -36,8 +36,10 @@ public class ChatService {
                     = new DatagramPacket(buf, buf.length, address, ChatUtils.getINSTANCE().getPORT());
             Loggers.infoLogger.info("Sending message :" + message.toString());
             socket.send(packet);
+            return "Message sent.";
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Loggers.errorLogger.error(e.getClass() +" :" + e.getMessage());
+            return "Failed to send message";
         }
     }
 
