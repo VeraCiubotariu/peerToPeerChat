@@ -3,7 +3,7 @@ package chat.logic;
 import java.util.List;
 
 public class Message {
-    private final String sender;
+    private String sender;
     private final String message;
     private final String receiver;
     private final List<String> ips;
@@ -35,6 +35,10 @@ public class Message {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
     public List<String> getIps() {

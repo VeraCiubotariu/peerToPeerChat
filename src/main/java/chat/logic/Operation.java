@@ -38,11 +38,12 @@ public enum Operation {
     }
 
     private static void closeConnection(final Server server, final MessageWrapper message) {
-        Group activeGroup = ChatUtils.getINSTANCE().getConnectedGroups().get(message.message().getGroup());
+        Group group = ChatUtils.getINSTANCE().getConnectedGroups().get(message.message().getGroup());
 
-        if (activeGroup != null) {
-            activeGroup.closeConnections();
-            ChatUtils.getINSTANCE().getConnectedGroups().remove(activeGroup);
+        if (group != null) {
+            group.closeConnections();
+            ChatUtils.getINSTANCE().getConnectedGroups().remove(group.getName());
+            ChatUtils.getINSTANCE().addToMessageQueue(message.message());
         }
 
         ChatUtils.getINSTANCE().setActiveGroup(null);
@@ -52,14 +53,17 @@ public enum Operation {
         String sender = message.message().getSender();
         String receiver = message.message().getReceiver();
         String myNickname = ChatUtils.getINSTANCE().getNickname();
+
         if (Objects.equals(sender, myNickname)) {
             server.getPendingClients().add(receiver);
         } else if (Objects.equals(receiver, myNickname)) {
-            if (message.message().getGroup() == null) {
+            if (message.message().getGroup() == null || message.message().getGroup().isEmpty()) {
                 message.message().setGroup(sender);
             }
 
             server.getIncomingInvites().put(sender, message.senderIp());
+
+            ChatUtils.getINSTANCE().addToMessageQueue(message.message());
             System.out.println("\n" + sender + ": " + message.message().getMessage());
         }
     }
@@ -73,8 +77,9 @@ public enum Operation {
 
         String myNickname = ChatUtils.getINSTANCE().getNickname();
         if (server.getPendingClients().contains(sender) && Objects.equals(myNickname, receiver)) {
-            if (groupName == null) {
+            if (groupName == null || message.message().getGroup().isEmpty()) {
                 message.message().setGroup(sender);
+                groupName = sender;
             }
 
             if (!connectedGroups.containsKey(groupName)) {
@@ -86,22 +91,19 @@ public enum Operation {
             ChatUtils.getINSTANCE().setActiveGroup(connectedGroups.get(groupName));
             server.getPendingClients().remove(sender);
 
-            System.out.println("\n" + sender + ": " + mesajString);
             ChatUtils.getINSTANCE().addToMessageQueue(message.message());
+            System.out.println("\n" + sender + ": " + mesajString);
         } else if (Objects.equals(myNickname, sender)) {
             InetAddress receiverIp = server.getIncomingInvites().get(receiver);
             Loggers.infoLogger.info("Trying to connect to ip {}...", receiverIp);
-            if (!connectedGroups.containsKey(groupName)) {
-                Group group = new Group(groupName, ChatUtils.getINSTANCE().getServerSocket(), true);
+            if (!connectedGroups.containsKey(receiver)) {
+                Group group = new Group(receiver, ChatUtils.getINSTANCE().getServerSocket(), true);
                 group.connectTo(receiverIp);
-                connectedGroups.put(groupName, group);
+                connectedGroups.put(receiver, group);
             }
 
             ChatUtils.getINSTANCE().setActiveGroup(connectedGroups
-                    .get(groupName));
-
-            ChatUtils.getINSTANCE().addToMessageQueue(message.message());
-            System.out.println("\n" + sender + ": " + mesajString);
+                    .get(receiver));
         }
     }
 
@@ -120,7 +122,6 @@ public enum Operation {
         } else if(addresedGroup != null && connectedGroups.containsKey(group)){
             addresedGroup.removeSocket(messageWrapper.senderIp().getHostAddress());
         }
-
     }
 
     private static void groupAcknowledge(Server server, MessageWrapper messageWrapper) {
@@ -129,6 +130,7 @@ public enum Operation {
         String receiver = messageWrapper.message().getReceiver();
         String myNickname = ChatUtils.getINSTANCE().getNickname();
         Map<String, Group> connectedGroups = ChatUtils.getINSTANCE().getConnectedGroups();
+
         if (sender.equals(myNickname)) {
             if (!connectedGroups.containsKey(groupName)) {
                 Group group = new Group(groupName, ChatUtils.getINSTANCE().getServerSocket(), true);
@@ -139,7 +141,7 @@ public enum Operation {
         } else if (receiver.equals(myNickname)) {
             if (server.getGroupPendingClients().contains(sender)) {
                 if (connectedGroups.containsKey(groupName)) {
-                    ChatUtils.getINSTANCE().setActiveGroup(connectedGroups.get(messageWrapper.message().getGroup()));
+                    ChatUtils.getINSTANCE().setActiveGroup(connectedGroups.get(groupName));
                     ChatUtils.getINSTANCE().getActiveGroup().newGroupMemberUpdate(messageWrapper.senderIp().getHostAddress());
                     server.getGroupPendingClients().remove(sender);
                 }

@@ -30,11 +30,12 @@ public class ChatService {
 
     public String sendDataUDP(Message message) {
         try {
+            message.setSender(ChatUtils.getINSTANCE().getNickname());
             String output = gson.toJson(message, Message.class);
             byte[] buf = output.getBytes();
             DatagramPacket packet
                     = new DatagramPacket(buf, buf.length, address, ChatUtils.getINSTANCE().getPORT());
-            Loggers.infoLogger.info("Sending message :" + message.toString());
+            Loggers.infoLogger.info("Sending message :" + message);
             socket.send(packet);
             return "Message sent.";
         } catch (IOException e) {
